@@ -85,7 +85,7 @@ nav.navigation .logo_nav, nav.navigation .close {
 }
 
 .header-section {
-  background: url(../images/desktop/Facebook\ Event\ Cover\ 1920x1080\ px.jpeg) no-repeat;
+  background-color: rebeccapurple;
   background-size: cover;
   padding: 64px 0 84px 0;
   margin-bottom: 162px;
