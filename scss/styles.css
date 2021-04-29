@@ -139,15 +139,15 @@ header {
   margin-bottom: 135px;
 }
 
-.interactive__img {
+/* .interactive__img {
   position: relative;
   z-index: 1;
   max-width: 100%;
-}
+} */
 
-.interactive__img img {
+/* .interactive__img img {
   max-width: 100%;
-}
+} */
 
 .interactive__text {
   background: #fff;
@@ -444,9 +444,9 @@ footer .social nav.navigation a::before {
     font-size: 1.25em;
     padding: 0 15px;
   }
-  .interactive__img {
+  /* .interactive__img {
     margin-bottom: 21px;
-  }
+  } */
   .creations {
     margin-bottom: 86px;
     position: relative;
