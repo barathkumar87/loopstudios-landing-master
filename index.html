@@ -6,14 +6,16 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="/scss/styles.css">
-  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.min.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <title> LMS landing page</title>
 
 </head>
 <body>
-  <section class="header-section">
+  <section id="header" class="header-section">
 
     <div class="content">
+
       <header>
         <a href="#" class="logo">
           <img src="/images/logo.svg" alt="Loopstudios landing page">
@@ -34,6 +36,8 @@
       </header>
   
       <h1>Immersive experiences that deliver</h1>
+      <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_hzfmxrr7.json"  background="transparent"  speed="1"  style="width: 600px; height: 500px; position: absolute;right: 1px; bottom: 2%;"  loop autoplay></lottie-player>
+
     </div>
   </section>
     
@@ -58,7 +62,7 @@
     </div>
     <ul class="creations__content">
       <li style="background: url('/images/desktop/Instagram\ Story\ 1080x1920\ px\ \(1\).jpeg');">
-        <a href="#">Student Portal</a>
+        <a href="https://srecportal.srec.ac.in:9000/">Student Portal</a>
       </li>
       <li style="background: url('/images/desktop/Instagram\ Story\ 1080x1920\ px\ \(2\).jpeg');">
         <a href="#">Online Objective Test</a>
@@ -108,7 +112,15 @@
       </div>
     </div>
   </footer>
+    
   <script>
+                        // var animation = bodymovin.loadAnimation({
+                        //     container: document.getElementById('header-section'),
+                        //     renderer: 'svg',
+                        //     loop: false,
+                        //     autoplay: true,
+                        //     path: "/media/teaching.json"
+                        // })
     document.querySelector('.burger').addEventListener('click', () => {
       document.querySelector('.header-section .navigation').classList.add('active');
     });
