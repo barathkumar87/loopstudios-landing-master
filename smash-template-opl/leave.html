@@ -110,7 +110,7 @@
                                     <h1 class="title">Leave Management System</h1>
                                     <p class="text">We blend insights and strategy to create digital products for forward-thinking organisations.</p>
                                     <ul class="slider-btn rounded-buttons">
-                                        <li><a class="main-btn rounded-one"id="pricing">GET STARTED</a></li>
+                                        <li><a class="main-btn rounded-one"href="#pricing">GET STARTED</a></li>
                                         <li><a class="main-btn rounded-two" href="#tree">DOWNLOAD</a></li>
                                     </ul>
                                 </div>
@@ -232,7 +232,7 @@
                             </ul>
                         </div>
                         <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-one" href="#">GET STARTED</a>
+                            <a class="main-btn rounded-one" href="#tree">GET STARTED</a>
                         </div>    
                     </div> <!-- pricing style one -->
                 </div>
@@ -253,7 +253,7 @@
                             </ul>
                         </div>
                         <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-one" href="#">GET STARTED</a>
+                            <a class="main-btn rounded-one" href="#tree">GET STARTED</a>
                         </div>
                     </div> <!-- pricing style one -->
                 </div>
@@ -274,7 +274,7 @@
                             </ul>
                         </div>
                         <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-one" href="#">GET STARTED</a>
+                            <a class="main-btn rounded-one" href="#tree">GET STARTED</a>
                         </div>
                     </div> <!-- pricing style one -->
                 </div>
@@ -431,7 +431,7 @@
                     <div class="contact-wrapper form-style-two pt-115">
                         <h4 class="contact-title pb-10"><i class="lni lni-envelope"></i> Leave <span>A Message.</span></h4>
                         
-                        <form id="contact-form" action="assets/contact.php" method="post">
+                        <form id="contact-form" class="form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-input mt-25">
@@ -463,7 +463,7 @@
                                 <p class="form-message"></p>
                                 <div class="col-md-12">
                                     <div class="form-input light-rounded-buttons mt-30">
-                                        <button class="main-btn light-rounded-two">Send Message</button>
+                                        <input type="submit" class="main-btn light-rounded-two"></input>
                                     </div> <!-- form input -->
                                 </div>
                             </div> <!-- row -->
@@ -524,7 +524,29 @@
 -->
 
     <!--====== PART ENDS ======-->
-
+    <script>
+        document.querySelector('form.form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let formData = document.querySelector('form.form').elements;
+        fetch('https://hooks.slack.com/services/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', {
+            method: 'POST',
+            body: JSON.stringify({text:  `name: ${formData["name"].value},  email: ${formData["email"].value}, message: ${formData["message"].value}`})
+           
+        }).then(function (response) {
+            if (response.ok) {
+            return response.json();
+            }
+            return Promise.reject(response);
+        }).then(function (data) {
+            console.log(data);
+        }).catch(function (error) {
+            console.warn('Something went wrong.', error);
+        });
+  
+        
+        });
+  
+     </script>
 
 
 

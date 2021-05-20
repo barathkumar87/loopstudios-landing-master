@@ -34,9 +34,9 @@
 
 <body>
                         
-<script type='text/javascript'>
+<!-- <script type='text/javascript'>
 		(function(I, L, T, i, c, k, s) {if(I.iticks) return;I.iticks = {host:c, settings:s, clientId:k, cdn:L, queue:[]};var h = T.head || T.documentElement;var e = T.createElement(i);var l = I.location;e.async = true;e.src = (L||c)+'/client/inject-v2.min.js';h.insertBefore(e, h.firstChild);I.iticks.call = function(a, b) {I.iticks.queue.push([a, b]);};})(window, 'https://cdn.intelliticks.com/prod/common', document, 'script', 'https://app.intelliticks.com', 'dqLCfLzRHoTrpBmEh_c', {});
-</script>
+</script> -->
                     
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -84,7 +84,7 @@
                         <div class="navbar-btn d-none d-sm-inline-block">
                             <ul>
                                 <li><a class="solid" href="/index.html">home</a></li>
-                                <li><a class="solid" href="https://form.jotform.com/211264938669468"target="_blank">Contact</a></li>
+                                <li><a class="solid" href="#tree">Contact</a></li>
                                 <li><lottie-player src="https://assets10.lottiefiles.com/datafiles/5FGDT1tGd6PRFWjrlnK36tsX4dv7kt1ihUMebNma/india.json"  background="transparent"  speed="1"  style="width: 50px; height: 50px;position: absolute;right: 30px;bottom: 2%;"  loop  autoplay></lottie-player></li>
                             </ul>
                         </div>
@@ -110,7 +110,7 @@
                                     <h1 class="title">Portal</h1>
                                     <p class="text">We blend insights and strategy to create digital products for forward-thinking organisations.</p>
                                     <ul class="slider-btn rounded-buttons">
-                                        <li><a class="main-btn rounded-one"href="#pricing">GET STARTED</a></li>
+                                        <li><a class="main-btn rounded-one" href="#pricing">GET STARTED</a></li>
                                         <li><a class="main-btn rounded-two" href="#tree">DOWNLOAD</a></li>
                                         
                                     </ul>
@@ -236,7 +236,7 @@
                         </ul>
                     </div>
                     <div class="pricing-btn rounded-buttons text-center">
-                        <a class="main-btn rounded-one" href="#">GET STARTED</a>
+                        <a class="main-btn rounded-one" href="#tree">GET STARTED</a>
                     </div>    
                 </div> <!-- pricing style one -->
             </div>
@@ -257,7 +257,7 @@
                         </ul>
                     </div>
                     <div class="pricing-btn rounded-buttons text-center">
-                        <a class="main-btn rounded-one" href="#">GET STARTED</a>
+                        <a class="main-btn rounded-one" href="#tree">GET STARTED</a>
                     </div>
                 </div> <!-- pricing style one -->
             </div>
@@ -278,7 +278,7 @@
                         </ul>
                     </div>
                     <div class="pricing-btn rounded-buttons text-center">
-                        <a class="main-btn rounded-one" href="#">GET STARTED</a>
+                        <a class="main-btn rounded-one" href="#tree">GET STARTED</a>
                     </div>
                 </div> <!-- pricing style one -->
             </div>
@@ -435,7 +435,7 @@
                     <div class="contact-wrapper form-style-two pt-115">
                         <h4 class="contact-title pb-10"><i class="lni lni-envelope"></i> Leave <span>A Message.</span></h4>
                         
-                        <form id="contact-form" action="assets/contact.php" method="post">
+                        <form id="contact-form" class="form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-input mt-25">
@@ -467,7 +467,7 @@
                                 <p class="form-message"></p>
                                 <div class="col-md-12">
                                     <div class="form-input light-rounded-buttons mt-30">
-                                        <button class="main-btn light-rounded-two">Send Message</button>
+                                        <input type="submit" class="main-btn light-rounded-two"></input>
                                     </div> <!-- form input -->
                                 </div>
                             </div> <!-- row -->
@@ -529,7 +529,29 @@
 
     <!--====== PART ENDS ======-->
 
-
+    <script>
+        document.querySelector('form.form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let formData = document.querySelector('form.form').elements;
+        fetch('https://hooks.slack.com/services/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', {
+            method: 'POST',
+            body: JSON.stringify({text:  `name: ${formData["name"].value},  email: ${formData["email"].value}, message: ${formData["message"].value}`})
+           
+        }).then(function (response) {
+            if (response.ok) {
+            return response.json();
+            }
+            return Promise.reject(response);
+        }).then(function (data) {
+            console.log(data);
+        }).catch(function (error) {
+            console.warn('Something went wrong.', error);
+        });
+  
+        
+        });
+  
+      </script>
 
 
     <!--====== Jquery js ======-->
